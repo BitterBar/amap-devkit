@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "license": "MIT",
   "dependencies": {
     "@amap-devkit/vue": "workspace:*",
     "pinia": "^2.2.2",
