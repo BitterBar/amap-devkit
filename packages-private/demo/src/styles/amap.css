@@ -1,0 +1,11 @@
+.amap-logo {
+  display: none;
+}
+
+.amap-marker-label {
+  border: none;
+  background-color: initial;
+  padding: initial;
+  font-size: inherit;
+  line-height: inherit;
+}

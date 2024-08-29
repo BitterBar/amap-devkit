@@ -1,0 +1,36 @@
+{
+  "include": [
+    "scripts/*",
+    "packages/env.d.ts",
+    "packages/vue/types/amap.d.ts",
+    "packages/*/src",
+    "packages/*/src/**/*.vue",
+    "packages/*/__tests__",
+    "packages/vue/template-is-customElement.mjs"
+  ],
+  "exclude": ["packages/**/__tests__/*"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "target": "ES2020",
+    "outDir": "temp",
+    "sourceMap": false,
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "noImplicitThis": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@amap-devkit/*": ["packages/*/src"]
+    }
+  }
+}

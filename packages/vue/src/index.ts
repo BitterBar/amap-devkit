@@ -1,0 +1,6 @@
+export { default as AMapMap, type AMapMapInst } from './components/AMapMap'
+export { useAmapContext } from './composables/useAmapContextProvider'
+export { default as AMapMask } from './components/AMapMask'
+export { default as doc } from './doc'
+export { AMapTagNames } from './modules/node'
+export * from './override/canvas'

@@ -1,0 +1,56 @@
+{
+  "name": "@amap-devkit/vue",
+  "version": "0.0.1",
+  "description": "@amap-devkit/vue",
+  "main": "index.js",
+  "module": "dist/vue.es.js",
+  "types": "dist/vue.d.ts",
+  "files": [
+    "index.js",
+    "dist",
+    "template-is-customElement.js"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/vue.d.ts",
+      "node": {
+        "production": "./dist/vue.cjs.prod.js",
+        "development": "./dist/vue.cjs.js",
+        "default": "./index.js"
+      },
+      "module": "./dist/vue.es.js",
+      "import": "./dist/vue.es.js",
+      "require": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "buildOptions": {
+    "name": "AmapDevkitVue",
+    "formats": [
+      "es",
+      "cjs",
+      "umd"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitterBar/amap-devkit",
+    "directory": "packages/vue"
+  },
+  "keywords": [
+    "amap-devkit"
+  ],
+  "author": "Bitter Bar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BitterBar/amap-devkit/issues"
+  },
+  "homepage": "https://github.com/BitterBar/amap-devkit/tree/main/packages/vue#readme",
+  "devDependencies": {
+    "@amap/amap-jsapi-types": "^0.0.15",
+    "vue": "^3.4.38"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  }
+}
