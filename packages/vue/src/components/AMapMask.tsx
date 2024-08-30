@@ -1,6 +1,5 @@
-import { defineComponent, computed } from 'vue'
-
-declare const AMapPolygon: any
+import { defineComponent } from 'vue'
+import { AMapTagNames } from '../modules/node'
 
 export default defineComponent({
   name: 'AMapMask',
@@ -12,8 +11,7 @@ export default defineComponent({
       new window.AMap.LngLat(360, -90, true),
       new window.AMap.LngLat(360, 90, true)
     ]
-    const positions = computed(() => [outer, attrs.path])
 
-    return () => <AMapPolygon {...attrs} path={positions.value} />
+    return () => <AMapTagNames.POLYGON {...attrs} path={[outer, attrs.bounds]} />
   }
 })

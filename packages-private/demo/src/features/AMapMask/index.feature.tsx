@@ -35,7 +35,7 @@ export default defineComponent({
     return (
       <AMapTagNames.GROUP>
         <AMapMask
-          path={this.path}
+          bounds={this.path}
           fillColor="rgb(218, 214, 198)"
           fillOpacity={0.85}
           strokeWeight={0}
