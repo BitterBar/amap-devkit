@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/BitterBar/amap-devkit/compare/v0.0.3...v0.0.4) (2024-08-30)
+
+
+### Bug Fixes
+
+* **AMapMask:** 修复组件参数传递错误问题 ([344b298](https://github.com/BitterBar/amap-devkit/commit/344b29827d55e06c2f326d183c207fdaf72272c8))
+
+
+
 ## [0.0.3](https://github.com/BitterBar/amap-devkit/compare/v0.0.2...v0.0.3) (2024-08-30)
 
 ### Features
