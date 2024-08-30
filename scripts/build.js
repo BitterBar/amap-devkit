@@ -11,7 +11,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import { default as buildTargets } from './targets.js'
 import { exec } from './utils.js'
-import templateiIsCustomElement from '../packages/vue/template-is-customElement.mjs'
+import { templateIsCustomElement } from '../packages/vue/compiler/index.js'
 
 const { values } = parseArgs({
   allowPositionals: true,
@@ -84,12 +84,12 @@ function createInlineConfig(target, prod = false) {
       vue({
         template: {
           compilerOptions: {
-            isCustomElement: templateiIsCustomElement
+            isCustomElement: templateIsCustomElement
           }
         }
       }),
       vueJsx({
-        isCustomElement: templateiIsCustomElement
+        isCustomElement: templateIsCustomElement
       })
     ],
     build: {

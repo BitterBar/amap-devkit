@@ -5,8 +5,7 @@
     "packages/vue/types/amap.d.ts",
     "packages/*/src",
     "packages/*/src/**/*.vue",
-    "packages/*/__tests__",
-    "packages/vue/template-is-customElement.mjs"
+    "packages/*/__tests__"
   ],
   "exclude": ["packages/**/__tests__/*"],
   "compilerOptions": {

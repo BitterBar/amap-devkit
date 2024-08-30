@@ -8,7 +8,7 @@
   "files": [
     "index.js",
     "dist",
-    "template-is-customElement.mjs"
+    "compiler"
   ],
   "exports": {
     ".": {
@@ -22,7 +22,11 @@
       "import": "./dist/vue.es.js",
       "require": "./index.js"
     },
-    "./*": "./*"
+    "./compiler": {
+      "types": "./compiler/index.d.ts",
+      "import": "./compiler/index.mjs",
+      "require": "./compiler/index.js"
+    }
   },
   "buildOptions": {
     "name": "AmapDevkitVue",
