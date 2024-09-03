@@ -78,7 +78,10 @@ export function findLastChild(node: AMapElement): AMapNode | null {
 /**
  * 查找节点同级下的after、before兄弟节点
  */
-export function findSibling(node: AMapNode, type: 'before' | 'after'): AMapNode | null {
+export function findSibling(
+  node: AMapNode,
+  type: 'before' | 'after'
+): AMapNode | null {
   const parent = node.__amap_node__.parentNode
   if (!parent) return null
 
@@ -135,7 +138,8 @@ export function handleRemoveChild(child: AMapNode): AMapNode | null {
 
   if (index > -1) {
     const beforeSibling = findSibling(child, 'before')
-    if (beforeSibling) beforeSibling.__amap_node__.nextSibling = child.__amap_node__.nextSibling
+    if (beforeSibling)
+      beforeSibling.__amap_node__.nextSibling = child.__amap_node__.nextSibling
     parentChildren.splice(index, 1)
   }
 
@@ -149,11 +153,16 @@ export function handleRemoveChild(child: AMapNode): AMapNode | null {
 /**
  * 深度递归该节点下的所有后代节点
  */
-export function deepTraverseAMapNode(node: AMapNode, callback: (node: AMapNode) => void) {
+export function deepTraverseAMapNode(
+  node: AMapNode,
+  callback: (node: AMapNode) => void
+) {
   callback(node)
 
   if (node.__amap_node__.children.length) {
-    node.__amap_node__.children.forEach((child) => deepTraverseAMapNode(child, callback))
+    node.__amap_node__.children.forEach((child) =>
+      deepTraverseAMapNode(child, callback)
+    )
   }
 }
 

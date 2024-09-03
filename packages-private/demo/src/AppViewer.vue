@@ -2,7 +2,11 @@
 import { onMounted, ref } from 'vue'
 import useViewerStore from '@/store/viewerStore'
 import { selectedFeature } from '@/features'
-import { AMapMap, type AMapMapInst, overrideGetContext2DReadFrequently } from '@amap-devkit/vue'
+import {
+  AMapMap,
+  type AMapMapInst,
+  overrideGetContext2DReadFrequently
+} from '@amap-devkit/vue'
 
 // 重写 getContext2D 方法，以便在频繁读取时提高性能
 overrideGetContext2DReadFrequently(true)

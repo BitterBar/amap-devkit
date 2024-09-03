@@ -2,7 +2,12 @@ import { type AMapElement } from './modules/node'
 import handleSpecialAttribute from './modules/handleSpecialAttribute'
 import { isOn, isModelListener } from './utils/general'
 
-export function patchProp(el: AMapElement, key: string, prevValue: unknown, nextValue: unknown) {
+export function patchProp(
+  el: AMapElement,
+  key: string,
+  prevValue: unknown,
+  nextValue: unknown
+) {
   /**
    * 在Vue中，`props.style`属性类型是对象、字符串、者字符串数组
    * 这和高德地图api中某些类中的`style`属性类型不一致，比如对象数组

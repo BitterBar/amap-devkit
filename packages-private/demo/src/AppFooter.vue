@@ -10,7 +10,13 @@ const { viewer } = toRefs(useViewerStore())
   <footer class="control-bar">
     <div class="control-bar__flex" id="CBL"></div>
     <div class="control-bar__flex" id="CBR">
-      <button v-if="viewer" class="control-bar__button" @click="flyHome(viewer)">🏠</button>
+      <button
+        v-if="viewer"
+        class="control-bar__button"
+        @click="flyHome(viewer)"
+      >
+        🏠
+      </button>
     </div>
   </footer>
 </template>

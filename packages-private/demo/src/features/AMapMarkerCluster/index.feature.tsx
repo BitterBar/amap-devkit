@@ -13,7 +13,10 @@ export default defineComponent({
       return Array.from({ length: 10000 }, () => {
         return {
           weight: 1,
-          lnglat: [116.397428 + 0.1 * Math.random(), 39.90923 + 0.1 * Math.random()]
+          lnglat: [
+            116.397428 + 0.1 * Math.random(),
+            39.90923 + 0.1 * Math.random()
+          ]
         }
       })
     }

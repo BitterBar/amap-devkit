@@ -45,7 +45,10 @@ export function createAMapGroup(map: AMapElement): AMapElement {
   return compatVShowDirective(group)
 }
 
-export function createAMapMaker(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapMaker(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const marker = new AMap.Marker(props as any) as unknown as AMapElement
   marker.__amap_node__ = {
     root: map,
@@ -62,7 +65,10 @@ export function createAMapMaker(map: AMapElement, props: AMapNodeProps): AMapEle
   return compatVShowDirective(marker)
 }
 
-export function createAMapPolyline(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapPolyline(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const polyline = new AMap.Polyline(props as any) as unknown as AMapElement
   polyline.__amap_node__ = {
     root: map,
@@ -79,7 +85,10 @@ export function createAMapPolyline(map: AMapElement, props: AMapNodeProps): AMap
   return compatVShowDirective(polyline)
 }
 
-export function createAMapPolygon(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapPolygon(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   // @ts-ignore types: AMap.Polygon的文档中其实是有参数的，但是没有在类型定义中体现
   const polygon = new AMap.Polygon(props as any) as unknown as AMapElement
   polygon.__amap_node__ = {
@@ -97,7 +106,10 @@ export function createAMapPolygon(map: AMapElement, props: AMapNodeProps): AMapE
   return compatVShowDirective(polygon)
 }
 
-export function createAMapRectangle(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapRectangle(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const rectangle = new AMap.Rectangle(props as any) as unknown as AMapElement
   rectangle.__amap_node__ = {
     root: map,
@@ -114,7 +126,10 @@ export function createAMapRectangle(map: AMapElement, props: AMapNodeProps): AMa
   return compatVShowDirective(rectangle)
 }
 
-export function createAMapCircle(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapCircle(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const circle = new AMap.Circle(props as any) as unknown as AMapElement
   circle.__amap_node__ = {
     root: map,
@@ -131,7 +146,10 @@ export function createAMapCircle(map: AMapElement, props: AMapNodeProps): AMapEl
   return compatVShowDirective(circle)
 }
 
-export function createAMapEllipse(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapEllipse(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const ellipse = new AMap.Ellipse(props as any) as unknown as AMapElement
   ellipse.__amap_node__ = {
     root: map,
@@ -148,7 +166,10 @@ export function createAMapEllipse(map: AMapElement, props: AMapNodeProps): AMapE
   return compatVShowDirective(ellipse)
 }
 
-export function createAmapMarkerClusterer(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAmapMarkerClusterer(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const markerClusterer = new AMap.MarkerClusterer(
     map as unknown as AMap.Map,
     [],
@@ -169,7 +190,10 @@ export function createAmapMarkerClusterer(map: AMapElement, props: AMapNodeProps
   return compatVShowDirective(markerClusterer)
 }
 
-export function createAMapGeoJSON(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapGeoJSON(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   // @ts-ignore types: 缺失AMap.GeoJSON的类型定义
   const geoJSON = new AMap.GeoJSON(props as any) as unknown as AMapElement
   geoJSON.__amap_node__ = {
@@ -187,7 +211,10 @@ export function createAMapGeoJSON(map: AMapElement, props: AMapNodeProps): AMapE
   return compatVShowDirective(geoJSON)
 }
 
-export function createAMapText(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapText(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   const text = new AMap.Text(props as any) as unknown as AMapElement
   text.__amap_node__ = {
     root: map,
@@ -204,8 +231,13 @@ export function createAMapText(map: AMapElement, props: AMapNodeProps): AMapElem
   return compatVShowDirective(text)
 }
 
-export function createAMapCircleMarker(map: AMapElement, props: AMapNodeProps): AMapElement {
-  const circleMarker = new AMap.CircleMarker(props as any) as unknown as AMapElement
+export function createAMapCircleMarker(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
+  const circleMarker = new AMap.CircleMarker(
+    props as any
+  ) as unknown as AMapElement
   circleMarker.__amap_node__ = {
     root: map,
     type: AMapNodeTypes.ELEMENT,
@@ -221,9 +253,14 @@ export function createAMapCircleMarker(map: AMapElement, props: AMapNodeProps): 
   return compatVShowDirective(circleMarker)
 }
 
-export function createAMapElasticMarker(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapElasticMarker(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   // @ts-ignore types: 缺失AMap.ElasticMarker的类型定义
-  const elasticMarker = new AMap.ElasticMarker(props as any) as unknown as AMapElement
+  const elasticMarker = new AMap.ElasticMarker(
+    props as any
+  ) as unknown as AMapElement
   elasticMarker.__amap_node__ = {
     root: map,
     type: AMapNodeTypes.ELEMENT,
@@ -239,8 +276,13 @@ export function createAMapElasticMarker(map: AMapElement, props: AMapNodeProps):
   return compatVShowDirective(elasticMarker)
 }
 
-export function createAMapLabelMarker(map: AMapElement, props: AMapNodeProps): AMapElement {
-  const labelMarker = new AMap.LabelMarker(props as any) as unknown as AMapElement
+export function createAMapLabelMarker(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
+  const labelMarker = new AMap.LabelMarker(
+    props as any
+  ) as unknown as AMapElement
   labelMarker.__amap_node__ = {
     root: map,
     type: AMapNodeTypes.ELEMENT,
@@ -256,8 +298,13 @@ export function createAMapLabelMarker(map: AMapElement, props: AMapNodeProps): A
   return compatVShowDirective(labelMarker)
 }
 
-export function createAMapLabelsLayer(map: AMapElement, props: AMapNodeProps): AMapElement {
-  const labelsLayer = new AMap.LabelsLayer(props as any) as unknown as AMapElement
+export function createAMapLabelsLayer(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
+  const labelsLayer = new AMap.LabelsLayer(
+    props as any
+  ) as unknown as AMapElement
   labelsLayer.__amap_node__ = {
     root: map,
     type: AMapNodeTypes.ELEMENT,
@@ -273,12 +320,18 @@ export function createAMapLabelsLayer(map: AMapElement, props: AMapNodeProps): A
   return compatVShowDirective(labelsLayer)
 }
 
-export function createAMapMassMarks(map: AMapElement, props: AMapNodeProps): AMapElement {
+export function createAMapMassMarks(
+  map: AMapElement,
+  props: AMapNodeProps
+): AMapElement {
   if (props.style && typeof props.style === 'function') {
     props.style = props.style()
   }
 
-  const massMarks = new AMap.MassMarks([], props as any) as unknown as AMapElement
+  const massMarks = new AMap.MassMarks(
+    [],
+    props as any
+  ) as unknown as AMapElement
   massMarks.__amap_node__ = {
     root: map,
     type: AMapNodeTypes.ELEMENT,

@@ -6,13 +6,17 @@ import MagicString from 'magic-string'
 import dts from 'rollup-plugin-dts'
 
 if (!existsSync('temp/packages')) {
-  console.warn('no temp dts files found. run `tsc -p tsconfig.build-browser.json` first.')
+  console.warn(
+    'no temp dts files found. run `tsc -p tsconfig.build-browser.json` first.'
+  )
   process.exit(1)
 }
 
 const packages = readdirSync('temp/packages')
 const targets = process.env.TARGETS ? process.env.TARGETS.split(',') : null
-const targetPackages = targets ? packages.filter((pkg) => targets.includes(pkg)) : packages
+const targetPackages = targets
+  ? packages.filter((pkg) => targets.includes(pkg))
+  : packages
 
 export default targetPackages.map(
   /** @returns {import('rollup').RollupOptions} */
@@ -26,7 +30,10 @@ export default targetPackages.map(
       plugins: [dts(), patchTypes(pkg)],
       onwarn(warning, warn) {
         // during dts rollup, everything is externalized by default
-        if (warning.code === 'UNRESOLVED_IMPORT' && !warning.exporter?.startsWith('.')) {
+        if (
+          warning.code === 'UNRESOLVED_IMPORT' &&
+          !warning.exporter?.startsWith('.')
+        ) {
           return
         }
         warn(warning)
@@ -123,7 +130,10 @@ function patchTypes(pkg) {
           let removed = 0
           for (let i = 0; i < node.specifiers.length; i++) {
             const spec = node.specifiers[i]
-            if (spec.type === 'ExportSpecifier' && shouldRemoveExport.has(spec.local.name)) {
+            if (
+              spec.type === 'ExportSpecifier' &&
+              shouldRemoveExport.has(spec.local.name)
+            ) {
               assert(spec.exported.type === 'Identifier')
               const exported = spec.exported.name
               if (exported !== spec.local.name) {
@@ -143,7 +153,9 @@ function patchTypes(pkg) {
                 assert(typeof spec.start === 'number')
                 assert(typeof spec.end === 'number')
                 s.remove(
-                  prev ? (assert(typeof prev.end === 'number'), prev.end) : spec.start,
+                  prev
+                    ? (assert(typeof prev.end === 'number'), prev.end)
+                    : spec.start,
                   spec.end
                 )
               }
@@ -165,7 +177,9 @@ function patchTypes(pkg) {
         code +=
           '\n' +
           readdirSync(additionalTypeDir)
-            .map((file) => readFileSync(`${additionalTypeDir}/${file}`, 'utf-8'))
+            .map((file) =>
+              readFileSync(`${additionalTypeDir}/${file}`, 'utf-8')
+            )
             .join('\n')
       }
       return code

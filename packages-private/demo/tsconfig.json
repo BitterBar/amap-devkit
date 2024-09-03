@@ -1,6 +1,12 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src/**/*", "./src/**/*.tsx", "./src/**/*.vue", "vite.config.ts", "env.d.ts"],
+  "include": [
+    "./src/**/*",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "vite.config.ts",
+    "env.d.ts"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

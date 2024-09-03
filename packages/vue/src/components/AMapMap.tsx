@@ -12,7 +12,10 @@ import {
   type PropType,
   type App
 } from 'vue'
-import { useAmapContextProvider, type AmapContext } from '../composables/useAmapContextProvider'
+import {
+  useAmapContextProvider,
+  type AmapContext
+} from '../composables/useAmapContextProvider'
 import { amapContextInjectKey } from '../injectKey'
 import type { AMapElement } from '../modules/node'
 import { createNodeOps } from '../nodeOps'
@@ -50,7 +53,10 @@ export default defineComponent({
       const InternalComponent = createInternalComponent(context, empty)
       const { render } = createRenderer(createNodeOps(context))
       context.render.value = render
-      render(h(InternalComponent), context.viewer.value as unknown as AMapElement)
+      render(
+        h(InternalComponent),
+        context.viewer.value as unknown as AMapElement
+      )
     }
 
     onMounted(() => {

@@ -39,11 +39,19 @@ async function run() {
   }
 
   // Build all targets for development
-  console.log(pico.bgBlue(pico.black(`Building targets in ${pico.bgGreen('development')} mode...`)))
+  console.log(
+    pico.bgBlue(
+      pico.black(`Building targets in ${pico.bgGreen('development')} mode...`)
+    )
+  )
   await Promise.all(targets.map((e) => createInlineConfig(e, false)).map(build))
 
   // Build all targets for production
-  console.log(pico.bgBlue(pico.black(`Building targets in ${pico.bgRed('production')} mode...`)))
+  console.log(
+    pico.bgBlue(
+      pico.black(`Building targets in ${pico.bgRed('production')} mode...`)
+    )
+  )
   await Promise.all(targets.map((e) => createInlineConfig(e, true)).map(build))
 
   // Build dts
@@ -54,7 +62,9 @@ async function run() {
       [
         'run',
         'build-dts',
-        ...(targets.length ? ['--environment', `TARGETS:${targets.join(',')}`] : [])
+        ...(targets.length
+          ? ['--environment', `TARGETS:${targets.join(',')}`]
+          : [])
       ],
       {
         stdio: 'inherit'
@@ -71,7 +81,9 @@ async function run() {
 function createInlineConfig(target, prod = false) {
   const pkgDir = path.resolve(`packages/${target}`)
 
-  const { buildOptions } = JSON.parse(readFileSync(`${pkgDir}/package.json`, 'utf-8'))
+  const { buildOptions } = JSON.parse(
+    readFileSync(`${pkgDir}/package.json`, 'utf-8')
+  )
 
   const entry = path.resolve(pkgDir, 'src/index.ts')
   const outDir = path.resolve(pkgDir, 'dist')
@@ -100,7 +112,8 @@ function createInlineConfig(target, prod = false) {
         entry,
         name: buildOptions.name,
         formats: buildOptions.formats,
-        fileName: (format) => (prod ? `${target}.${format}.prod.js` : `${target}.${format}.js`)
+        fileName: (format) =>
+          prod ? `${target}.${format}.prod.js` : `${target}.${format}.js`
       },
       outDir,
       rollupOptions: {

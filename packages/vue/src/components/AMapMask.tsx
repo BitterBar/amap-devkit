@@ -12,6 +12,8 @@ export default defineComponent({
       new window.AMap.LngLat(360, 90, true)
     ]
 
-    return () => <AMapTagNames.POLYGON {...attrs} path={[outer, attrs.bounds]} />
+    return () => (
+      <AMapTagNames.POLYGON {...attrs} path={[outer, attrs.bounds]} />
+    )
   }
 })

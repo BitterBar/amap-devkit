@@ -4,14 +4,21 @@ import { ref, onBeforeUnmount } from 'vue'
 const search = defineModel('search')
 const searchDom = ref<HTMLInputElement | null>(null)
 
-const handleFocus = (e: KeyboardEvent) => e.key === '/' && searchDom.value?.focus()
+const handleFocus = (e: KeyboardEvent) =>
+  e.key === '/' && searchDom.value?.focus()
 document.addEventListener('keyup', handleFocus)
 onBeforeUnmount(() => document.removeEventListener('keyup', handleFocus))
 </script>
 
 <template>
   <header class="header">
-    <input ref="searchDom" v-model="search" type="text" placeholder="/" class="search-bar" />
+    <input
+      ref="searchDom"
+      v-model="search"
+      type="text"
+      placeholder="/"
+      class="search-bar"
+    />
   </header>
 </template>
 

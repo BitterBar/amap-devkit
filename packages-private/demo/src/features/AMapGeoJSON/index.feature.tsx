@@ -36,7 +36,9 @@ export default defineComponent({
         nextTick(() => ctx.viewer.value.setFitView(null, true))
       })
 
-    return () => <AMapTagNames.GEOJSON geoJSON={geojson.value} getPolygon={getPolygon} />
+    return () => (
+      <AMapTagNames.GEOJSON geoJSON={geojson.value} getPolygon={getPolygon} />
+    )
   }
 })
 

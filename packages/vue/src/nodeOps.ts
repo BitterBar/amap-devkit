@@ -5,7 +5,9 @@ import { patchProp } from './patchProp'
 import { NOOP } from './utils/noop'
 import doc from './doc'
 
-export function createNodeOps(context: AmapContext): RendererOptions<AMapNode, AMapElement> {
+export function createNodeOps(
+  context: AmapContext
+): RendererOptions<AMapNode, AMapElement> {
   const viewer = context.viewer.value
 
   return {

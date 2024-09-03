@@ -3,7 +3,10 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const resolveEntryForPkg = (/** @type {string} */ p) =>
-  path.resolve(fileURLToPath(import.meta.url), `../../packages/${p}/src/index.ts`)
+  path.resolve(
+    fileURLToPath(import.meta.url),
+    `../../packages/${p}/src/index.ts`
+  )
 
 const dirs = readdirSync(new URL('../packages', import.meta.url))
 

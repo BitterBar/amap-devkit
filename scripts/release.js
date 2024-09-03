@@ -59,13 +59,17 @@ const skipBuild = args.skipBuild
 const skipPrompts = args.skipPrompts
 const skipGit = args.skipGit
 
-const packages = fs.readdirSync(path.resolve(__dirname, '../packages')).filter((p) => {
-  const pkgRoot = path.resolve(__dirname, '../packages', p)
-  if (fs.statSync(pkgRoot).isDirectory()) {
-    const pkg = JSON.parse(fs.readFileSync(path.resolve(pkgRoot, 'package.json'), 'utf-8'))
-    return !pkg.private
-  }
-})
+const packages = fs
+  .readdirSync(path.resolve(__dirname, '../packages'))
+  .filter((p) => {
+    const pkgRoot = path.resolve(__dirname, '../packages', p)
+    if (fs.statSync(pkgRoot).isDirectory()) {
+      const pkg = JSON.parse(
+        fs.readFileSync(path.resolve(pkgRoot, 'package.json'), 'utf-8')
+      )
+      return !pkg.private
+    }
+  })
 
 const keepThePackageName = (/** @type {string} */ pkgName) => pkgName
 
@@ -77,7 +81,9 @@ const versionIncrements = [
   'patch',
   'minor',
   'major',
-  ...(preId ? /** @type {const} */ (['prepatch', 'preminor', 'premajor', 'prerelease']) : [])
+  ...(preId
+    ? /** @type {const} */ (['prepatch', 'preminor', 'premajor', 'prerelease'])
+    : [])
 ]
 
 const inc = (/** @type {import('semver').ReleaseType} */ i) =>
@@ -93,7 +99,8 @@ const dryRun = async (
   /** @type {import('node:child_process').SpawnOptions} */ opts = {}
 ) => console.log(pico.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
 const runIfNotDry = isDryRun ? dryRun : run
-const getPkgRoot = (/** @type {string} */ pkg) => path.resolve(__dirname, '../packages/' + pkg)
+const getPkgRoot = (/** @type {string} */ pkg) =>
+  path.resolve(__dirname, '../packages/' + pkg)
 const step = (/** @type {string} */ msg) => console.log(pico.cyan(msg))
 
 async function main() {
@@ -112,7 +119,9 @@ async function main() {
       type: 'select',
       name: 'release',
       message: 'Select release type',
-      choices: versionIncrements.map((i) => `${i} (${inc(i)})`).concat(['custom'])
+      choices: versionIncrements
+        .map((i) => `${i} (${inc(i)})`)
+        .concat(['custom'])
     })
 
     if (release === 'custom') {
@@ -302,7 +311,9 @@ async function isInSyncWithRemote() {
       return yes
     }
   } catch {
-    console.error(pico.red('Failed to check whether local HEAD is up-to-date with remote.'))
+    console.error(
+      pico.red('Failed to check whether local HEAD is up-to-date with remote.')
+    )
     return false
   }
 }
@@ -323,7 +334,9 @@ function updateVersions(version, getNewPackageName = keepThePackageName) {
   // 1. update root package.json
   updatePackage(path.resolve(__dirname, '..'), version, getNewPackageName)
   // 2. update all packages
-  packages.forEach((p) => updatePackage(getPkgRoot(p), version, getNewPackageName))
+  packages.forEach((p) =>
+    updatePackage(getPkgRoot(p), version, getNewPackageName)
+  )
 }
 
 /**

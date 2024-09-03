@@ -13,6 +13,9 @@ export function overrideGetContext2DReadFrequently(enabled: boolean) {
   HTMLCanvasElement.prototype.getContext = function (contextId, options) {
     if (contextId !== '2d') return getContext.call(this, contextId, options)
     if (!options) options = {}
-    return getContext.apply(this, [contextId, { ...options, willReadFrequently: true }]) as any
+    return getContext.apply(this, [
+      contextId,
+      { ...options, willReadFrequently: true }
+    ]) as any
   }
 }

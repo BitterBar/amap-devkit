@@ -33,7 +33,9 @@ export default defineComponent({
       markers,
       handleUpdateMarkers(e: any) {
         count.value = parseInt(e.target.value)
-        markers.value = createLabelsData(count.value).map((e) => new AMap.LabelMarker(e as any))
+        markers.value = createLabelsData(count.value).map(
+          (e) => new AMap.LabelMarker(e as any)
+        )
       }
     }
   },
@@ -44,7 +46,10 @@ export default defineComponent({
       h({
         render() {
           return (
-            <ul class="preset-card" style="user-select: none; padding-left: 1.8rem">
+            <ul
+              class="preset-card"
+              style="user-select: none; padding-left: 1.8rem"
+            >
               <li style={{ marginBottom: '1em' }}>
                 当前数量为
                 <u class="accent">
@@ -69,7 +74,11 @@ export default defineComponent({
 
     return (
       <AMapTagNames.GROUP>
-        <AMapTagNames.LABELS_LAYER zooms={[3, 20]} collision={false} markers={this.markers} />
+        <AMapTagNames.LABELS_LAYER
+          zooms={[3, 20]}
+          collision={false}
+          markers={this.markers}
+        />
 
         <AMapTagNames.MARKER
           position={center}

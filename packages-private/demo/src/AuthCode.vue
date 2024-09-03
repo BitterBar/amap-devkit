@@ -19,7 +19,12 @@ const handleAuth = () => {
 
 <template>
   <div class="auth">
-    <input type="password" placeholder="Code" v-model.trim="code" @keydown.enter="handleAuth" />
+    <input
+      type="password"
+      placeholder="Code"
+      v-model.trim="code"
+      @keydown.enter="handleAuth"
+    />
   </div>
 </template>
 

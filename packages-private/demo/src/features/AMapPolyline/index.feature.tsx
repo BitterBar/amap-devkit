@@ -12,7 +12,10 @@ export default defineComponent({
 
     function createPositions() {
       return Array.from({ length: 10 }, () => {
-        return [116.397428 + 0.1 * Math.random(), 39.90923 + 0.1 * Math.random()]
+        return [
+          116.397428 + 0.1 * Math.random(),
+          39.90923 + 0.1 * Math.random()
+        ]
       })
     }
 

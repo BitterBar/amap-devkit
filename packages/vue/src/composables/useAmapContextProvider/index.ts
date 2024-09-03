@@ -38,7 +38,9 @@ export function useAmapContext(): AmapContext {
   const context = inject<Partial<AmapContext>>(amapContextInjectKey)
 
   if (!context) {
-    throw new Error('useAmapContext must be used together with useAmapContextProvider')
+    throw new Error(
+      'useAmapContext must be used together with useAmapContextProvider'
+    )
   }
 
   return context as AmapContext

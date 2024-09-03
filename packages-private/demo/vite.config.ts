@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
-import { templateIsCustomElement } from '@amap-devkit/vue/compiler'
+import { isCustomElement } from '@amap-devkit/core/compiler'
 
 const base = '/preview'
 const __DEV__ = process.env.NODE_ENV !== 'production'
@@ -15,12 +15,12 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: templateIsCustomElement
+          isCustomElement: isCustomElement
         }
       }
     }),
     vueJsx({
-      isCustomElement: templateIsCustomElement
+      isCustomElement: isCustomElement
     })
   ],
   define: {

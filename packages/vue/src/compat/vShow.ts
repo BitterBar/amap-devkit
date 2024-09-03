@@ -32,7 +32,10 @@ function handleSetAMapElementDisplay(
   return true
 }
 
-function handleGetAMapElementDisplay(node: AMapElement, style: AMapElementStyle) {
+function handleGetAMapElementDisplay(
+  node: AMapElement,
+  style: AMapElementStyle
+) {
   if (node.__amap_node__.tag === AMapTagNames.MARKER_CLUSTERER) {
     return node.getMap() ? 'block' : 'none'
   }
@@ -56,7 +59,8 @@ export function compatVShowDirective(node: AMapElement) {
 
   node.style = new Proxy<AMapElementStyle>(node.style, {
     set(target, key, value, receiver) {
-      if (key === 'display') return handleSetAMapElementDisplay(node, value, target)
+      if (key === 'display')
+        return handleSetAMapElementDisplay(node, value, target)
       return Reflect.set(target, key, value, receiver)
     },
     get(target, key, receiver) {

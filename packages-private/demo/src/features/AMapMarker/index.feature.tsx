@@ -1,4 +1,11 @@
-import { defineComponent, onMounted, h, render, ref, onBeforeUnmount } from 'vue'
+import {
+  defineComponent,
+  onMounted,
+  h,
+  render,
+  ref,
+  onBeforeUnmount
+} from 'vue'
 import { AMapTagNames, useAmapContext } from '@amap-devkit/vue'
 import LogoIcon from '../components/LogoIcon'
 import randomEmoji from '@/utils/randomEmoji'
@@ -28,7 +35,10 @@ export default defineComponent({
         },
         render() {
           return (
-            <div class={`preset-card ${this.blink}`} style="white-space: nowrap; user-select: none">
+            <div
+              class={`preset-card ${this.blink}`}
+              style="white-space: nowrap; user-select: none"
+            >
               <h3 class="preset-card__title">Marker{emoji}Content</h3>
               <code>
                 <del>Icon</del>

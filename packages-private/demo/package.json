@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@amap-devkit/vue": "workspace:*",
+    "@amap-devkit/core": "workspace:*",
     "pinia": "^2.2.2",
     "vue": "^3.4.38"
   }

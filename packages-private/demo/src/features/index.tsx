@@ -6,7 +6,10 @@ export interface Feature {
 }
 
 export const selectedFeature = shallowRef<Feature | null>(null)
-const modules = import.meta.glob<true, string, Component>('./**/*.feature.tsx', { eager: true })
+const modules = import.meta.glob<true, string, Component>(
+  './**/*.feature.tsx',
+  { eager: true }
+)
 
 const features: Feature[] = []
 for (const path in modules) {

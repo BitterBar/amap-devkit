@@ -1,4 +1,5 @@
 import './styles/index.css'
+import '@amap-devkit/core'
 
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
